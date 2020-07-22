@@ -19,14 +19,15 @@ class Post(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
-        related_name='posts'
+        related_name='posts',
+        verbose_name='Группа',
     )
-    text = models.TextField(default='-пусто-')
-    pub_date = models.DateTimeField("date published", auto_now_add=True)
+    text = models.TextField(default='-пусто-', verbose_name='Текст')
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="posts"
+        related_name='posts',
     )
     
     class Meta:
